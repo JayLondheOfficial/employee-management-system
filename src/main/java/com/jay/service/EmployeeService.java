@@ -2,14 +2,15 @@ package com.jay.service;
 
 import java.util.List;
 
-import com.jay.entity.Employee;
+import com.jay.dto.EmployeeDto;
 
 public interface EmployeeService {
-	Employee saveEmployee(Employee employee);
-	List<Employee> getAllEmployees();
-	Employee getEmployeeById(Long id);
-	Employee updateEmployee(Long id, Employee employee);
+	EmployeeDto saveEmployee(EmployeeDto employee);
+	List<EmployeeDto> getAllEmployees();
+	EmployeeDto getEmployeeById(Long id);
+	EmployeeDto updateEmployee(Long id, EmployeeDto employee);
 	void deleteEmployee(Long id);
+	
 	
 
 }
