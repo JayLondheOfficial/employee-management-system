@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jay.dto.EmployeeDto;
 import com.jay.entity.Employee;
+import com.jay.exception.ResourceNotFoundException;
 import com.jay.mapper.MapStructMapper;
 import com.jay.repository.EmployeeRepository;
 import com.jay.service.EmployeeService;
@@ -57,7 +58,7 @@ public EmployeeServiceImpl(EmployeeRepository employeeRepository, MapStructMappe
 	@Override
 	public EmployeeDto getEmployeeById(Long id) {
 		logger.info("getting employee with id : {}",id);
-		Employee employee = employeeRepository.findById(id).orElseThrow(()-> new RuntimeException("Employee not found"));
+		Employee employee = employeeRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Employee not found with id: "+id));
 		return employeeMapper.toDTO(employee);
 		
 	}
